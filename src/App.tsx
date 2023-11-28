@@ -1,11 +1,9 @@
+import { Button, NextUIProvider } from "@nextui-org/react"
 
 export const App = () => {
     return (
-        <div>
-            <h1 className="text-3xl font-bold underline">
-            Hello world!
-            </h1>
-
-        </div>
+        <NextUIProvider>
+            <Button color="danger">Hola</Button>
+        </NextUIProvider>
     )
 }
