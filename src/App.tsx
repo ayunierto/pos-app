@@ -1,9 +1,9 @@
-import { Button, NextUIProvider } from "@nextui-org/react"
+import { Dashboard } from "./pages/Dashboard/Dashboard";
 
 export const App = () => {
-    return (
-        <NextUIProvider>
-            <Button color="danger">Hola</Button>
-        </NextUIProvider>
-    )
-}
+  return (
+    <>
+      <Dashboard />
+    </>
+  );
+};

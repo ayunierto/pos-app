@@ -1,0 +1,367 @@
+.bx {
+  font-size: 1.7rem;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--bg-color-secondary);
+  width: var(--aside-width);
+  height: 100%;
+  z-index: 3;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  transition: all 0.4s ease;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar.close {
+  width: var(--aside-width-close);
+}
+
+.sidebar__logo {
+  font-size: 24px;
+  font-weight: 700;
+  height: 56px;
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  color: var(--primary);
+  z-index: 2;
+  padding-bottom: 20px;
+  box-sizing: content-box;
+  overflow-x: hidden;
+}
+
+.sidebar__logo .bx {
+  min-width: var(--aside-width-close);
+  display: flex;
+  justify-content: center;
+  font-size: 2.2rem;
+}
+
+.sidebar__menu {
+  width: 100%;
+  /* margin-top: 48px; */
+}
+
+.sidebar__menu__item {
+  height: 48px;
+  background: transparent;
+  margin-left: 6px;
+  border-radius: 48px 0 0 48px;
+  padding: 4px;
+  position: relative;
+}
+
+.sidebar__menu__item.active {
+  background: var(--bg-color);
+}
+
+.sidebar__menu__item.active::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: -40px;
+  right: 0;
+  box-shadow: 20px 20px 0 var(--bg-color);
+  z-index: -1;
+}
+
+.sidebar__menu__item.active::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  bottom: -40px;
+  right: 0;
+  box-shadow: 20px -20px 0 var(--bg-color);
+  z-index: -1;
+}
+
+.sidebar__menu__item a {
+  background: var(--bg-color-secondary);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  border-radius: 48px;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow-x: hidden;
+  transition: all 0.4s ease;
+}
+
+.sidebar__menu__item.active a {
+  color: var(--primary);
+}
+
+.sidebar.close .sidebar__menu__item a {
+  width: calc(48px - (4px * 2));
+  transition: all 0.4s ease;
+}
+
+.sidebar__menu__item a .bx {
+  min-width: calc(var(--aside-width-close) - ((4px + 6px) * 2));
+  display: flex;
+  font-size: 1.6rem;
+  justify-content: center;
+}
+
+.sidebar__menu__item a:hover {
+  color: var(--primary-light);
+  transform: translate(10px, 0);
+  transition: all 0.4s ease;
+}
+
+.content {
+  position: relative;
+  width: calc(100% - var(--aside-width));
+  left: var(--aside-width);
+  transition: all 0.4s ease;
+}
+
+.navbar #theme-toggle:checked + .navbar__theme-toggle::before {
+  left: calc(100% - (25px - 4px) -2px);
+}
+
+.sidebar.close ~ .content {
+  width: calc(100% - var(--aside-width-close));
+  left: var(--aside-width-close);
+}
+
+.navbar {
+  height: 56px;
+  background: var(--bg-color-secondary);
+  display: flex;
+  align-items: center;
+  padding: 0 24px 0 0;
+  gap: 24px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  box-shadow: var(--shadow);
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: -40px;
+  left: 0;
+  border-radius: 50%;
+  box-shadow: -20px -20px 0 var(--bg-color-secondary);
+}
+
+.navbar__link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.navbar__icon {
+  cursor: pointer;
+  color: var(--text-color);
+  margin-right: auto;
+}
+
+.navbar__form {
+  width: 100%;
+  max-width: 400px;
+  /* margin-right: auto; */
+}
+
+.navbar__form_content {
+  display: flex;
+  align-items: center;
+  height: 36px;
+}
+
+.navbar__form_content input {
+  flex-grow: 1;
+  padding: 0 16px;
+  height: 100%;
+  border: none;
+  background: var(--bg-color);
+  border-radius: 36px 0 0 36px;
+  outline: none;
+  color: var(--text-color);
+  width: 100%;
+}
+
+.navbar__form_content button {
+  width: 80px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0 36px 36px 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.navbar__link__notif {
+  font-size: 20px;
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -6px;
+  top: -6px;
+  background: var(--danger);
+  border-radius: 50%;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+}
+
+.navbar__theme-toggle {
+  display: block;
+  min-width: 50px;
+  height: 25px;
+  background: var(--bg-color);
+  cursor: pointer;
+  position: relative;
+  border-radius: 25px;
+}
+
+.navbar__theme-toggle::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  width: calc(25px - 4px);
+  background: var(--primary);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.navbar #theme-toggle:checked + .navbar__theme-toggle::before {
+  left: calc(100% - 25px);
+  background: var(--success);
+}
+
+#theme-toggle {
+  display: none;
+}
+
+main {
+  z-index: 4;
+  margin: 10px;
+}
+
+main h1 {
+  margin-bottom: 10px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+header ul li {
+  padding: 0 4px;
+}
+
+header ul li a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+header > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  gap: 5px;
+  background: var(--primary);
+  border-radius: 10px;
+  padding: 1px 8px;
+  font-size: 0.8rem;
+}
+
+.card {
+  background: var(--bg-color-secondary);
+  box-shadow: var(--shadow);
+  padding: 15px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.card i {
+  font-size: 60px;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+  .content {
+    width: calc(100% - 60px);
+    left: 200px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .navbar__form_content input {
+    display: none;
+  }
+  .navbar__form_content button {
+    width: auto;
+    height: auto;
+    background: transparent;
+    color: var(--text-color);
+    border-radius: none;
+  }
+
+  .navbar__form.show .navbar__form_content input {
+    display: block;
+    width: 100%;
+  }
+
+  .navbar__form.show .navbar__form_content button {
+    width: 36px;
+    height: 100%;
+    color: white;
+    background: var(--danger);
+    border-radius: 0 36px 36px 0;
+  }
+
+  .navbar__form.show ~ .navbar__link {
+    display: none;
+    background: red;
+  }
+}
