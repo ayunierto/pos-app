@@ -1,11 +1,10 @@
-// import { Dashboard } from "./Dashboard/Dashboard";
-import { Login } from "./auth/pages/Login";
+import { BrowserRouter } from "react-router-dom";
+import { AppRouter } from "./router";
 
 export const App = () => {
   return (
-    <>
-      {/* <Dashboard /> */}
-      <Login />
-    </>
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
   );
 };
