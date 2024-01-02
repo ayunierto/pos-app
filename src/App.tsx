@@ -1,9 +1,11 @@
-import { Dashboard } from "./pages/Dashboard/Dashboard";
+// import { Dashboard } from "./Dashboard/Dashboard";
+import { Login } from "./auth/pages/Login";
 
 export const App = () => {
   return (
     <>
-      <Dashboard />
+      {/* <Dashboard /> */}
+      <Login />
     </>
   );
 };
